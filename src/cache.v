@@ -12,7 +12,7 @@ module cachev
 	keys are accessed.
 */
 
-struct Cache[T] {
+pub struct Cache[T] {
 	capacity int
 
 	mut:
@@ -22,7 +22,7 @@ struct Cache[T] {
 }
 
 // Create a new cache with type T and given capacity.
-fn Cache.new[T](capacity int) Cache[T] {
+pub fn Cache.new[T](capacity int) Cache[T] {
 	return Cache[T]{
 		capacity: capacity,
 		cache:    map[string]T{},
@@ -31,7 +31,7 @@ fn Cache.new[T](capacity int) Cache[T] {
 
 // Add a value to the cache, evicting the least recently used key if
 // the cache is full.
-fn (mut c Cache[T]) set(key string, value T) {
+pub fn (mut c Cache[T]) set(key string, value T) {
 	if c.cache.len == 0 {
 		c.tail = key
 		c.head = key
@@ -48,7 +48,7 @@ fn (mut c Cache[T]) set(key string, value T) {
 }
 
 // Get a value from the cache, and move the key to the end of the buffer.
-fn (mut c Cache[T]) get(key string) T {
+pub fn (mut c Cache[T]) get(key string) T {
 	c.head = key
 
 	if c.head == c.tail {
