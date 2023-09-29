@@ -1,4 +1,4 @@
-module cache
+module cachev
 
 /*
 	The cache is a very simple key-value store, where the key is a
@@ -8,9 +8,8 @@ module cache
 	we keep a buffer of keys that have been accessed, and when the
 	cache is full, we evict the least recently used key.
 
-	When a key is accessed, we move it to the end of the buffer.
-	When a key is added, we add it to the end of the buffer.
-	When a key is evicted, we remove it from the front of the buffer.
+	We keep track of the LRU by moving the head and tail keys as
+	keys are accessed.
 */
 
 struct Cache[T] {

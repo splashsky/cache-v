@@ -1,4 +1,4 @@
-module cache
+module cachev
 
 fn test_foobar() {
 	mut c := Cache.new[string](10)
