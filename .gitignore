@@ -1,13 +1,24 @@
-# ---> V
+# Binaries for programs and plugins
+main
+vCache
 *.exe
-*.o
+*.exe~
 *.so
-*.tmp.c
-*.exp
-*.ilk
-*.pdb
+*.dylib
 *.dll
-*.lib
-*.bak
-*.out
 
+# Ignore binary output folders
+bin/
+
+# Ignore common editor/system specific metadata
+.DS_Store
+.idea/
+.vscode/
+*.iml
+
+# ENV
+.env
+
+# vweb and database
+*.db
+*.js
